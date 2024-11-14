@@ -6,7 +6,7 @@ interface IParams {
   params: { id: string };
 }
 
-export async function generateMetadata({ params }: IParams) {
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const movie = await getMovie(id);
   return {
@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: IParams) {
   };
 }
 
-export default async function MovieDetail({ params }: IParams) {
+export default async function MovieDetail({ params }: { params: Promise<{ id: string }> }) {
   //   const movie = await getMovie(id);
   //   const videos = await getVideos(id);
 
