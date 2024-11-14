@@ -1,6 +1,8 @@
 // 'use client';
 
 import Link from 'next/link';
+import Movie from '../../components/movie';
+import styles from '../../styles/home.module.css';
 
 // import { useEffect, useState } from 'react';
 
@@ -35,11 +37,12 @@ export default async function HomePage() {
   // return <div>{JSON.stringify(movies)}</div>;
 
   return (
-    <div>
+    <div className={styles.container}>
       {movies.map((movie) => (
-        <li key={movie.id}>
-          <Link href={`/movies/${movie.id}`}>{movie.title}</Link>
-        </li>
+        // <li key={movie.id}>
+        //   <Link href={`/movies/${movie.id}`}>{movie.title}</Link>
+        // </li>
+        <Movie key={movie.id} id={movie.id} poster_path={movie.poster_path} title={movie.title} />
       ))}
     </div>
   );
